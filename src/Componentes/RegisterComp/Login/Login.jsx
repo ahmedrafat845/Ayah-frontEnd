@@ -5,7 +5,7 @@ import * as Yup from 'yup'
 import axios from 'axios'
 import { mediaContext } from './../../../Context/MediaStore';
 import { toast } from 'react-toastify'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import ErrorList from './../../LayOutComp/ErrorList/ErrorList';
 
 export default function Login() {
@@ -44,7 +44,7 @@ export default function Login() {
         }
 
       } catch(error){
-        if (error.response || error.response.status === 400) {
+        if (error.response && error.response.status === 400) {
           setLoading(false);
           const errorMessage = error.response.data.message || "An error occurred";
           notify(errorMessage, 'error');
