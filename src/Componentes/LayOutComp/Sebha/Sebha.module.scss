@@ -1,0 +1,53 @@
+:root {
+    --very-light: #dbd5bd;
+    --light: #cac4ac;
+    --dark: #454545;
+    --greenish: #123532;
+    --redish: #d55333;
+}
+
+
+.counterContainer {
+    width: 500px;
+    text-align: center;
+    background-color: var(--light);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+
+}
+
+#counter {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--greenish);
+}
+
+.reset,.incrementBtn {
+    background-color: var(--greenish);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all .5s;
+}
+.incrementBtn{
+    width: 300px;
+    height: 300px;
+}
+
+button:hover {
+    background-color: var(--dark);
+}
+
+button.reset {
+    background-color: var(--redish);
+}
+
+button.reset:hover {
+    background-color: var(--dark);
+}

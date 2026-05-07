@@ -1,0 +1,46 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@160..700&display=swap');
+
+$very-light: #f7f7f6;
+$light: #cac4ac;
+$dark: #454545;
+$greenish: #1a3532;
+$redish: #d55333;
+$blueish-gray: #4e6e70;
+$soft-blue: #8b6ea3;
+$terracotta: #b05f4e;
+$pale-pink: #e8b4c1;
+
+//#f7f7f6  1
+//#dbd5bd 2
+//#dddddb 3
+body {
+  box-sizing: border-box;
+  direction: rtl;
+  background-color:#1a3532;
+  font-weight: 400;
+
+
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--scrollbar-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(-45deg, #ec7f20 0%, #ffb691 100% );
+  border-radius: 6px;
+}
+//linear-gradient(-45deg, #35f43c 0%, #40c9ff 100% )
+
+
+.link{
+    text-decoration: none ;
+    color: inherit ;
+}
+
+
+

@@ -1,0 +1,17 @@
+@import '../../../index.scss';
+
+.logo{
+    background-position: center center;
+    background-size: cover;
+    width: 50px;
+    border-radius: 15px;
+
+}
+.bgNav{
+  background-color: $very-light;
+  color:$terracotta;
+  min-height: 80px;
+}
+.btn{
+    background-color:$redish ;
+}

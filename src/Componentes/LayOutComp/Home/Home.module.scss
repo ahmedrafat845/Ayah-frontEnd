@@ -1,0 +1,21 @@
+@import '../../../index.scss';
+
+.Home{
+    background:rgba(0, 0, 0, 0.4) url('../../../images/mo12.jpg');
+    background-blend-mode:hue;
+    background-size: cover;
+    background-position: center center;
+    height:calc(100vh - 80px);
+    overflow: hidden;
+
+
+}
+.captionHome{
+    width: 100%;
+    padding: 20px;
+    border-radius:15px;
+    padding-top: 30px;
+    color:white;
+    background-color: rgba(26, 53, 50,.7);
+    margin-top: 60px;
+}

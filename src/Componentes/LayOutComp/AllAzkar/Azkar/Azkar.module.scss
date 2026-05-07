@@ -1,0 +1,33 @@
+@import '../../../../index.scss';
+
+.captionAzkar{
+    background-color:$light;
+    border-radius:20px;
+}
+.azkarElsabah,.azkarElmasaa{
+    height: 300px;
+    width: 300px;
+    border-radius: 15px;
+    background-color: $light;
+    transition: all .5s;
+    margin: auto;
+    color: $light;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.azkarElsabah{
+    background-color: $greenish;
+}
+.azkarElmasaa{
+    background-color: $redish;
+}
+.azkarElsabah:hover{
+    background-color: $redish;
+    transform: scale(1.09);
+}
+.azkarElmasaa:hover{
+    background-color: $greenish;
+    transform: scale(1.09);
+}

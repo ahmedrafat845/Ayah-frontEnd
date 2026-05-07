@@ -1,0 +1,58 @@
+@import '../../../../index.scss';
+
+.head_Of_Azkar_Elsabah{
+    background-color: $very-light;
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+.caption_of_azkarElsabah{
+    background-color: $very-light;
+    margin-top: 40px;
+    border-radius: 15px;
+}
+.count{
+    background-color: $greenish;
+    color: $very-light;
+    height: 75%;
+    border-radius: 15px;
+    font-size: 40px;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s;
+
+}
+.count:hover{
+    background-color: $redish;
+}
+.reset{
+    height: 15%;
+    margin-top: 20px;
+    background-color: $redish;
+    border-radius:15px;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $greenish;
+}
+.numOfZekr{
+    background-color: $greenish;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    color: $very-light;
+}
+.title{
+    color: $terracotta;
+}
+.benefit{
+ color: $blueish-gray;
+}
+.zekr{
+    line-height: 37px;
+    word-spacing: 7px;
+}
