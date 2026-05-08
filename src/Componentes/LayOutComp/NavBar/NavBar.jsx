@@ -1,76 +1,88 @@
-import React, { useContext } from 'react'
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import { Link, useNavigate } from 'react-router-dom';
-import { mediaContext } from '../../../Context/MediaStore';
-import logo from "../../../images/صل على محمد.jpg"
-import style from "./NavBar.module.scss"
+import React, { useContext } from "react";
+import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import { Link, useNavigate } from "react-router-dom";
+import { mediaContext } from "../../../Context/MediaStore";
 
-
+import logo from "../../../images/صل على محمد.jpg";
+import style from "./NavBar.module.scss";
 
 export default function NavBar() {
-  let {userData,LogOut}= useContext(mediaContext)
+  let { userData, LogOut } = useContext(mediaContext);
+
   const navigate = useNavigate();
+
   const handleLogout = () => {
-  LogOut();
-  navigate('/Login'); // ✅ التحويل الصح
-};
+    LogOut();
+    navigate("/Login");
+  };
 
-
-    
   return (
-    <>
-       <Navbar expand="lg" className={`${style.bgNav} `}>
-        <Container fluid>
-            <img src={logo} className={`${style.logo} `} alt="" />
-            <Navbar.Brand href="#" className='fw-bold fs-4 text-muted  '> آية (صل علي محمد)🧡</Navbar.Brand>
-            
-            <Navbar.Toggle aria-controls="navbarScroll" />
-            <Navbar.Collapse id="navbarScroll">
-            <Nav
-                className="ms-auto  my-lg-0"
-              
-            
-            >
-                {userData?(
-                  <>
-                    <Nav.Link as={Link} to="">الصفحه الرئيسيه</Nav.Link>
-                    <Nav.Link as={Link} to="Azkar">الاذكار</Nav.Link>
-                    <Nav.Link as={Link} to="Ahadith">الاحاديث</Nav.Link>
-                    <Nav.Link as={Link} to="Roqya">الرقيه الشرعيه</Nav.Link>
-                    <Nav.Link as={Link} to="Sebha">سبحه</Nav.Link>
+    <Navbar expand="lg" className={style.bgNav}>
+      <Container fluid className="align-items-center">
 
+        {/* LEFT SIDE */}
+        <div className={style.leftSide}>
+          <img
+            src={logo}
+            className={style.logo}
+            alt="Ayah Logo"
+          />
 
-                  </>
-                ):('')}
-                
-                
-                
-               
-                
-            </Nav>
-            <Form className="d-flex justify-content-end pb-2  ps-4">
+          <Navbar.Brand className={style.brand}>
+            (آية) صلِّ على النبي ﷺ
+          </Navbar.Brand>
+        </div>
 
-           
-                {userData?(
-                  <>
-                <button onClick={handleLogout} className={`${style.btn} btn btn-danger mt-2`}>
-                  خروج
-                </button>
-                  </>
-                ):('')}
-               
+        {/* TOGGLE */}
+        <Navbar.Toggle
+          aria-controls="navbarScroll"
+          className={style.toggle}
+        />
 
-                
-                
-            </Form>
-            </Navbar.Collapse>
-        </Container>
-       </Navbar>
+        <Navbar.Collapse id="navbarScroll">
+          <Nav className="ms-auto my-lg-0 align-items-lg-center">
 
-    
-    </>
-  )
+            {userData ? (
+              <>
+                <Nav.Link as={Link} to="" className={style.navLink}>
+                  الرئيسية
+                </Nav.Link>
+
+                <Nav.Link as={Link} to="Azkar" className={style.navLink}>
+                  الأذكار
+                </Nav.Link>
+
+                <Nav.Link as={Link} to="Ahadith" className={style.navLink}>
+                  الأحاديث
+                </Nav.Link>
+
+                <Nav.Link as={Link} to="Roqya" className={style.navLink}>
+                  الرقية
+                </Nav.Link>
+
+                <Nav.Link as={Link} to="Sebha" className={style.navLink}>
+                  السبحة
+                </Nav.Link>
+              </>
+            ) : null}
+          </Nav>
+
+          <Form className="d-flex justify-content-end ps-lg-3">
+            {userData ? (
+              <button
+                onClick={handleLogout}
+                className={style.logoutBtn}
+              >
+                خروج
+              </button>
+            ) : null}
+          </Form>
+        </Navbar.Collapse>
+
+      </Container>
+    </Navbar>
+  );
 }

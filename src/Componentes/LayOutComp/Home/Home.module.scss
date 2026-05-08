@@ -1,21 +1,99 @@
 @import '../../../index.scss';
 
-.Home{
-    background:rgba(0, 0, 0, 0.4) url('../../../images/mo12.jpg');
-    background-blend-mode:hue;
-    background-size: cover;
-    background-position: center center;
-    height:calc(100vh - 80px);
-    overflow: hidden;
+.Home {
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.55),
+      rgba(0, 0, 0, 0.65)
+    ),
+    url('../../../images/mo12.jpg');
 
+  background-size: cover;
+  background-position: center;
+  min-height: calc(100vh - 80px);
+  overflow: hidden;
+  padding-bottom: 30px;
 
 }
-.captionHome{
-    width: 100%;
-    padding: 20px;
-    border-radius:15px;
-    padding-top: 30px;
-    color:white;
-    background-color: rgba(26, 53, 50,.7);
+
+/* كارت النص */
+.captionHome {
     margin-top: 60px;
+  width: 100%;
+
+  padding: 30px;
+  border-radius: 20px;
+
+  /* Glass effect */
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  color: #f5f5f5;
+  direction: rtl;
+
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+
+  animation: fadeIn 1s ease-in-out;
+}
+
+.captionHome h2 {
+  font-size: 28px;
+  color: #d4af37; /* ذهبي هادي */
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.captionHome p {
+  font-size: 18px;
+  line-height: 1.9;
+  color: #eaeaea;
+}
+
+/* animation بسيطة */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.btnGroup {
+  margin-top: 20px;
+}
+
+.btnDini {
+  background: linear-gradient(145deg, #d4af37, #b58e1b);
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  min-width: 120px;
+  margin: 10px;
+}
+
+.btnDini:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(145deg, #e0b94d, #c49a22);
+}
+
+.btnDini:active {
+  transform: scale(0.97);
+}
+
+/* موبايل */
+@media (max-width: 576px) {
+  .btnDini {
+    width: 100%;
+  }
 }
