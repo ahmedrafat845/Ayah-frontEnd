@@ -68,7 +68,7 @@ export default function AzkarElmasaa() {
             <div className="row">
               <div className="col-md-8 m-auto">
                 <div className={style.head_Of_Azkar_Elmasaa}>
-                  <h2>أذكار المساء 🧡</h2>
+                  <h2>أذكار المساء 🌙</h2>
                 </div>
               </div>
             </div>

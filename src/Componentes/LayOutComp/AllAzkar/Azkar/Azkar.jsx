@@ -7,7 +7,7 @@ export default function Azkar() {
     <>
     <div className="Azkar">
         <div className="container">
-            <div className="row pt-5 mt-5">
+            <div className="row pt-5 ">
                <div className={`${style.captionAzkar} col-md-8 m-auto mt-5 py-5`}>
                 <div className="row">
               

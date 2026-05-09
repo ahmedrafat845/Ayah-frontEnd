@@ -39,7 +39,7 @@ export default function Ahadith() {
         <div className="row">
         <div className="col-md-8 m-auto">
            <div className={`${style.head_Of_Ahadith}`}>
-             <h2>أحاديثُ  🧡</h2>
+             <h2>أحاديثُ  🌿</h2>
 
            </div>
          </div>
@@ -47,7 +47,7 @@ export default function Ahadith() {
           <div key={index} className="col-md-12 m-auto">
           <div className={`${style.head_of_caption} p-4`}>
           <div className={`${style.AhadithCaption} `}>
-             <h2>{`<<${item.hadith}🧡>>`}</h2>
+             <h2>{`<<${item.hadith} >>`}</h2>
  
            </div>
           </div>

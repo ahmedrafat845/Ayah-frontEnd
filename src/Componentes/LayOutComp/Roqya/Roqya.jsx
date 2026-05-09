@@ -73,7 +73,7 @@ export default function Roqya() {
             <div className="row">
               <div className="col-md-8 m-auto">
                 <div className={style.head_Of_Azkar_Elsabah}>
-                  <h2>الرقية الشرعية 🧡</h2>
+                  <h2>الرقية الشرعية 📿</h2>
                 </div>
               </div>
             </div>

@@ -65,7 +65,7 @@ export default function AzkarElsabah() {
             <div className="row">
               <div className="col-md-8 m-auto">
                 <div className={style.head_Of_Azkar_Elsabah}>
-                  <h2>أذكار الصباح 🧡</h2>
+                  <h2>أذكار الصباح 🌙</h2>
                 </div>
               </div>
             </div>
