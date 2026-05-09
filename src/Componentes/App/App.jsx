@@ -13,6 +13,7 @@ import AzkarElmasaa from '../LayOutComp/AllAzkar/AzkarElmasaa/AzkarElmasaa';
 import Roqya from '../LayOutComp/Roqya/Roqya';
 import Ahadith from './../LayOutComp/Ahadith/Ahadith';
 import Sebha from '../LayOutComp/Sebha/Sebha';
+import Contact from '../LayOutComp/ContactUs/Contact';
 
 
 export default function App() {
@@ -36,6 +37,7 @@ let routes = createBrowserRouter([
       { path: 'Ahadith', element: <ProtectRouter><Ahadith/></ProtectRouter> },
       { path: 'Roqya', element: <ProtectRouter><Roqya/></ProtectRouter> },
       { path: 'Sebha', element: <ProtectRouter><Sebha/></ProtectRouter> },
+      { path: 'contact', element: <ProtectRouter><Contact/></ProtectRouter> },
       { path: 'Login', element: <ReverseProtect><Login/></ReverseProtect> },
     ],
   }
