@@ -49,6 +49,23 @@ export default function Home() {
                     <button className={`${style.btnDini}`}>السبحة</button>
                   </Link>
                 </div>
+             <div className={style.whatsappSection}>
+  <h4>🌿 جروب "آية"</h4>
+
+  <p>
+    جروب لنشر آيات من القرآن الكريم، وأحاديث نبوية،
+    وأذكار يومية لتذكير القلب بالله 🌙
+  </p>
+
+  <a
+    href="https://chat.whatsapp.com/FVpKiuvEaUN4i1Jte3sowZ"
+    target="_blank"
+    rel="noreferrer"
+    className={style.whatsappBtn}
+  >
+    انضم إلى جروب آية 📿
+  </a>
+</div>
               </div>
             </div>
           </div>

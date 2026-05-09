@@ -91,6 +91,66 @@
   transform: scale(0.97);
 }
 
+
+
+.whatsappSection {
+  margin-top: 30px;
+
+  padding: 20px;
+
+  background: rgba(255, 255, 255, 0.7);
+
+  border: 1px solid rgba(201, 162, 39, 0.2);
+
+  border-radius: 16px;
+
+  text-align: center;
+
+  backdrop-filter: blur(6px);
+}
+
+.whatsappSection h4 {
+  color: #a8861f;
+
+  font-weight: 700;
+
+  margin-bottom: 10px;
+}
+
+.whatsappSection p {
+  color: #6f6f6f;
+
+  font-size: 14px;
+
+  margin-bottom: 15px;
+}
+
+.whatsappBtn {
+  display: inline-block;
+
+  background: #25D366;
+
+  color: white;
+
+  padding: 12px 26px;
+
+  border-radius: 999px;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition: 0.3s;
+
+  box-shadow: 0 6px 15px rgba(37, 211, 102, 0.25);
+}
+
+.whatsappBtn:hover {
+  transform: translateY(-2px);
+
+  filter: brightness(1.05);
+}
+
 /* موبايل */
 @media (max-width: 576px) {
   .btnDini {
