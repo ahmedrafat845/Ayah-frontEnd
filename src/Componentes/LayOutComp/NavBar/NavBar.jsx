@@ -66,6 +66,9 @@ export default function NavBar() {
                 <Nav.Link as={Link} to="Sebha" className={style.navLink}>
                   السبحة
                 </Nav.Link>
+                 <Nav.Link as={Link} to="Doaa" className={style.navLink}>
+                  دعاء
+                </Nav.Link>
                  <Nav.Link as={Link} to="contact" className={style.navLink}>
                   اتصل بنا
                 </Nav.Link>

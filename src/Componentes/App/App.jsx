@@ -14,6 +14,10 @@ import Roqya from '../LayOutComp/Roqya/Roqya';
 import Ahadith from './../LayOutComp/Ahadith/Ahadith';
 import Sebha from '../LayOutComp/Sebha/Sebha';
 import Contact from '../LayOutComp/ContactUs/Contact';
+import Doaa from '../LayOutComp/Doaa/Doaa';
+import QuranDoaa from '../LayOutComp/Doaa/QuranDoaa/QuranDoaa';
+import RizkDoaa from './../LayOutComp/Doaa/RizkDoaa/RizkDoaa';
+import ArafaDoaa from '../LayOutComp/Doaa/ArafaDoaa/ArafaDoaa';
 
 
 export default function App() {
@@ -37,6 +41,10 @@ let routes = createBrowserRouter([
       { path: 'Ahadith', element: <ProtectRouter><Ahadith/></ProtectRouter> },
       { path: 'Roqya', element: <ProtectRouter><Roqya/></ProtectRouter> },
       { path: 'Sebha', element: <ProtectRouter><Sebha/></ProtectRouter> },
+      { path: 'Doaa', element: <ProtectRouter><Doaa/></ProtectRouter> },
+      { path: 'QuranDoaa', element: <ProtectRouter><QuranDoaa/></ProtectRouter> },
+      { path: 'RizkDoaa', element: <ProtectRouter><RizkDoaa/></ProtectRouter> },
+       { path: 'ArafaDoaa', element: <ProtectRouter><ArafaDoaa/></ProtectRouter> },
       { path: 'contact', element: <ProtectRouter><Contact/></ProtectRouter> },
       { path: 'Login', element: <ReverseProtect><Login/></ReverseProtect> },
     ],
