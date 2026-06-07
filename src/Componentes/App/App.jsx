@@ -20,7 +20,7 @@ import RizkDoaa from './../LayOutComp/Doaa/RizkDoaa/RizkDoaa';
 import ArafaDoaa from '../LayOutComp/Doaa/ArafaDoaa/ArafaDoaa';
 import Quran from './../LayOutComp/Quran/Quran';
 import SurahDetails from './../LayOutComp/Quran/SurahDetails/SurahDetails';
-import Tafsier from './../LayOutComp/Tafsier/Tafsier';
+
 
 
 export default function App() {
@@ -40,12 +40,11 @@ let routes = createBrowserRouter([
       { index: true, element: <ProtectRouter><Home/></ProtectRouter> },
       { path: 'quran', element: <ProtectRouter><Quran/></ProtectRouter> },
       { path: 'surahDetails/:num', element: <ProtectRouter><SurahDetails/></ProtectRouter> },
-      { path: 'tafsier', element: <ProtectRouter><Tafsier/></ProtectRouter> },
 
       { path: 'Azkar', element: <ProtectRouter><Azkar/></ProtectRouter> },
       { path: 'AzkarElsabah', element: <ProtectRouter><AzkarElsabah/></ProtectRouter> },
       { path: 'AzkarElmasaa', element: <ProtectRouter><AzkarElmasaa/></ProtectRouter> },
-      
+
       { path: 'Ahadith', element: <ProtectRouter><Ahadith/></ProtectRouter> },
       { path: 'Roqya', element: <ProtectRouter><Roqya/></ProtectRouter> },
       { path: 'Sebha', element: <ProtectRouter><Sebha/></ProtectRouter> },

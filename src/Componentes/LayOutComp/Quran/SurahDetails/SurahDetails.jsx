@@ -1,8 +1,8 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import style from "./SurahDetails.module.css";
-import tafseerData from "../../../../assets/tafseer.json"; // ✅ تأكد إن المسار صحيح
+import tafseerData from "../../../../assets/tafseer.json";
 
 export default function SurahDetails() {
   const { num } = useParams();
@@ -10,14 +10,16 @@ export default function SurahDetails() {
   const [bookmarkedAyah, setBookmarkedAyah] = useState(null);
   const [openTafseer, setOpenTafseer] = useState(null);
 
-  const getSurahDetails = async () => {
+  const getSurahDetails = useCallback(async () => {
     try {
-      const res = await axios.get(`https://api.alquran.cloud/v1/surah/${num}/ar`);
+      const res = await axios.get(
+        `https://api.alquran.cloud/v1/surah/${num}/ar`
+      );
       setSurh(res.data.data);
     } catch (error) {
       console.error(error);
     }
-  };
+  }, [num]);
 
   useEffect(() => {
     getSurahDetails();
@@ -26,15 +28,22 @@ export default function SurahDetails() {
     if (saved && saved.surahNum === Number(num)) {
       setBookmarkedAyah(saved.ayahNumber);
     }
-  }, [num]);
+  }, [num, getSurahDetails]);
 
   useEffect(() => {
     if (surah && bookmarkedAyah) {
       const element = document.getElementById(`ayah-${bookmarkedAyah}`);
       if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "center" });
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+
         element.classList.add(style.highlight);
-        setTimeout(() => element.classList.remove(style.highlight), 3000);
+
+        setTimeout(() => {
+          element.classList.remove(style.highlight);
+        }, 3000);
       }
     }
   }, [surah, bookmarkedAyah]);
@@ -45,19 +54,29 @@ export default function SurahDetails() {
       setBookmarkedAyah(null);
     } else {
       setBookmarkedAyah(ayahNumber);
-      const bookmarkData = { surahNum: Number(num), ayahNumber };
-      localStorage.setItem("lastReadAyah", JSON.stringify(bookmarkData));
+
+      const bookmarkData = {
+        surahNum: Number(num),
+        ayahNumber,
+      };
+
+      localStorage.setItem(
+        "lastReadAyah",
+        JSON.stringify(bookmarkData)
+      );
     }
   };
 
   const showTafseer = (ayahNumber) => {
-    setOpenTafseer(openTafseer === ayahNumber ? null : ayahNumber);
+    setOpenTafseer(
+      openTafseer === ayahNumber ? null : ayahNumber
+    );
   };
 
   if (!surah) {
     return (
       <div className="spin d-flex justify-content-center align-items-center mt-5 pt-5">
-        <i className="fa-solid fa-mosque text-white  fa-spin fa-5x mt-5 pt-5"></i>
+        <i className="fa-solid fa-mosque text-white fa-spin fa-5x mt-5 pt-5"></i>
       </div>
     );
   }
@@ -69,6 +88,7 @@ export default function SurahDetails() {
           <div className="col-md-12">
             <div className={`${style.head} p-3 rounded-3 text-center`}>
               <h5>{surah.name}</h5>
+
               <div className={style.ayahDecor}>
                 <span className={style.decor}>۞</span>
                 <h4>بسم الله الرحمن الرحيم</h4>
@@ -84,31 +104,40 @@ export default function SurahDetails() {
               );
 
               return (
-                <div key={ayah.number} className="">
+                <div key={ayah.number}>
                   <div
                     id={`ayah-${ayah.number}`}
                     className={`${style.surah} rounded-2 p-2 ${
-                      bookmarkedAyah === ayah.number ? style.activeAyah : ""
+                      bookmarkedAyah === ayah.number
+                        ? style.activeAyah
+                        : ""
                     }`}
                   >
                     <div className="d-flex justify-content-between align-items-center px-2">
                       <div
-                        className={`${style.right}`}
-                        onClick={() => showTafseer(ayah.numberInSurah)}
+                        className={style.right}
+                        onClick={() =>
+                          showTafseer(ayah.numberInSurah)
+                        }
                         style={{ cursor: "pointer" }}
                       >
                         <div className={style.num}>
                           <h5>{ayah.numberInSurah}</h5>
                         </div>
+
                         <div className="text">
-                          <h5 className={`${style.aya} me-1`}>{ayah.text}</h5>
+                          <h5 className={`${style.aya} me-1`}>
+                            {ayah.text}
+                          </h5>
                         </div>
                       </div>
 
                       <div className="left me-3">
                         <div
                           className="bookmark"
-                          onClick={() => toggleBookmark(ayah.number)}
+                          onClick={() =>
+                            toggleBookmark(ayah.number)
+                          }
                           style={{ cursor: "pointer" }}
                         >
                           <i
@@ -123,7 +152,6 @@ export default function SurahDetails() {
                     </div>
                   </div>
 
-                  {/* ✅ التفسير يظهر بانتقال ناعم */}
                   <div
                     className={`${style.tafseerWrapper} ${
                       openTafseer === ayah.numberInSurah
