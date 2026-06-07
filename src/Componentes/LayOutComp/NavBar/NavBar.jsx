@@ -50,6 +50,10 @@ export default function NavBar() {
                 <Nav.Link as={Link} to="" className={style.navLink}>
                   الرئيسية
                 </Nav.Link>
+                  <Nav.Link as={Link} to="quran" className={style.navLink}>
+                  القران الكريم 
+                </Nav.Link>
+
 
                 <Nav.Link as={Link} to="Azkar" className={style.navLink}>
                   الأذكار
