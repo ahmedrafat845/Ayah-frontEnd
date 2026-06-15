@@ -1,29 +1,33 @@
 import React, { useEffect, useState, useRef } from "react";
-import style from "../AllAzkar/AzkarElsabah/AzkarElsabah.module.scss";
+import style from "../AllAzkar/ZekrCard/ZekrCard.module.scss";
 import axios from "axios";
 import sound from "../../../not.wav";
+import ZekrCard from "../AllAzkar/ZekrCard/ZekrCard";
+
 
 export default function Roqya() {
   const [roqya, setRoqya] = useState([]);
-  const [countRoqya, setcountRoqya] = useState([]);
   const [loading, setloading] = useState(false);
 
   const audioRef = useRef(null);
 
-  let getAllRoqya = async () => {
+  const getAllRoqya = async () => {
     setloading(true);
 
     try {
-      let { data } = await axios.get(
+      const { data } = await axios.get(
         `https://ayah-back-end.vercel.app/roqya/getAllRoqya`
       );
 
-      setRoqya(data.allRoqya);
+      const formatted = data.allRoqya.map((item) => ({
+        ...item,
+  
+        zekr: item.roqya,
+        numOfZekr: item.numOfRoqya,
+        initialCount: item.count,
+      }));
 
-      setcountRoqya(
-        data.allRoqya.map((item) => item.count)
-      );
-
+      setRoqya(formatted);
       setloading(false);
     } catch (error) {
       console.error("حدث خطأ:", error);
@@ -35,28 +39,24 @@ export default function Roqya() {
     getAllRoqya();
   }, []);
 
-  let handelCount = (index) => {
-    let updateRoqya = [...roqya];
+  const handleCount = (index) => {
+    const updated = [...roqya];
 
-    if (updateRoqya[index].count > 0) {
-      updateRoqya[index] = {
-        ...updateRoqya[index],
-        count: updateRoqya[index].count - 1,
-      };
+    if (updated[index].count > 0) {
+      updated[index].count -= 1;
     } else {
       audioRef.current.play();
     }
 
-    setRoqya(updateRoqya);
+    setRoqya(updated);
   };
 
-  let handelReset = (index) => {
-    let resetRoqya = [...roqya];
+  const handleReset = (index) => {
+    const updated = [...roqya];
 
-    resetRoqya[index].count =
-      countRoqya[index];
+    updated[index].count = updated[index].initialCount;
 
-    setRoqya(resetRoqya);
+    setRoqya(updated);
   };
 
   return (
@@ -66,59 +66,26 @@ export default function Roqya() {
           <i className="fa-solid fa-mosque fa-10x text-white fa-spin"></i>
         </div>
       ) : (
-        <div className={`${style.azkarElsabah} pb-5 mb-5`}>
+        <div className={`${style.azkarPage} pb-5 mb-5`}>
           <audio ref={audioRef} src={sound} />
 
           <div className="container">
             <div className="row">
               <div className="col-md-8 m-auto">
-                <div className={style.head_Of_Azkar_Elsabah}>
+                <div className={style.header}>
                   <h2>الرقية الشرعية 📿</h2>
                 </div>
               </div>
             </div>
 
             {roqya.map((item, index) => (
-              <div
-                key={index}
-                className={`${style.caption_of_azkarElsabah} row py-4 px-4`}
-              >
-                {/* النص */}
-                <div className="col-md-9 order-md-2">
-                  <div className="content">
-                    <div className="d-flex justify-content-between align-items-center mb-2">
-                      <h4 className={style.title}>
-                        {item.title}
-                      </h4>
-
-                      <span className={style.numOfZekr}>
-                        {item.numOfRoqya}
-                      </span>
-                    </div>
-
-                    <h3 className={`${style.zekr} my-3`}>
-                      {item.roqya}
-                    </h3>
-                  </div>
-                </div>
-
-                {/* العد */}
-                <div className="col-12 col-md-3 order-2 order-md-1 d-flex flex-column align-items-center justify-content-center">
-                  <div
-                    onClick={() => handelCount(index)}
-                    className={style.count}
-                  >
-                    {item.count}
-                  </div>
-
-                  <div
-                    onClick={() => handelReset(index)}
-                    className={style.reset}
-                  >
-                    <i className="fa-solid fa-arrow-rotate-left"></i>
-                  </div>
-                </div>
-              </div>
+              <ZekrCard
+                key={item._id || index}
+                item={item}
+                index={index}
+                handleCount={handleCount}
+                handleReset={handleReset}
+              />
             ))}
           </div>
         </div>

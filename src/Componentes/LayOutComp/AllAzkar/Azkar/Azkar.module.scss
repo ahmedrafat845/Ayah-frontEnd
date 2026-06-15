@@ -1,33 +1,97 @@
-@import '../../../../index.scss';
+@import "../../../../index.scss";
 
-.captionAzkar{
-    background-color:rgba(252, 251, 248, 0.9);
-    border-radius:20px;
+.azkarPage {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  background: radial-gradient(
+    circle at top,
+    rgba(201, 162, 39, 0.06),
+    transparent 60%
+  );
 }
-.azkarElsabah,.azkarElmasaa{
-    height: 300px;
-    width: 300px;
-    border-radius: 15px;
-    background-color: $light;
-    transition: all .5s;
-    margin: auto;
-    color: $light;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+/* Container */
+.captionAzkar {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 26px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(201, 162, 39, 0.15);
 }
-.azkarElsabah{
-    background-color: $greenish;
+
+/* Base Card */
+.card {
+  height: 210px;
+  border-radius: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  font-weight: 600;
+  font-size: 20px;
+
+  cursor: pointer;
+  transition: all 0.35s ease;
+
+  color: #fff;
+
+  position: relative;
+  overflow: hidden;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
 }
-.azkarElmasaa{
-    background-color: $redish;
+
+/* Soft hover (no harsh movement) */
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
 }
-.azkarElsabah:hover{
-    background-color: $redish;
-    transform: scale(1.09);
+
+/* subtle shine */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: 0.6s;
 }
-.azkarElmasaa:hover{
-    background-color: $greenish;
-    transform: scale(1.09);
+
+.card:hover::after {
+  transform: translateX(100%);
+}
+
+/* ===== Islamic Colors (soft & calm) ===== */
+
+.green {
+  background: linear-gradient(135deg, #2f6f4e, #4c8c68);
+}
+
+.gold {
+  background: linear-gradient(135deg, #b89b2e, #d4af37);
+}
+
+.navy {
+  background: linear-gradient(135deg, #1f3b57, #3f5f7a);
+}
+
+/* Link */
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card {
+    height: 170px;
+    font-size: 18px;
+  }
 }

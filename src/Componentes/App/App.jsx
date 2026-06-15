@@ -20,6 +20,7 @@ import RizkDoaa from './../LayOutComp/Doaa/RizkDoaa/RizkDoaa';
 import ArafaDoaa from '../LayOutComp/Doaa/ArafaDoaa/ArafaDoaa';
 import Quran from './../LayOutComp/Quran/Quran';
 import SurahDetails from './../LayOutComp/Quran/SurahDetails/SurahDetails';
+import MultipledAzkar from '../LayOutComp/AllAzkar/MultipledAzkar/MultipledAzkar';
 
 
 
@@ -44,6 +45,7 @@ let routes = createBrowserRouter([
       { path: 'Azkar', element: <ProtectRouter><Azkar/></ProtectRouter> },
       { path: 'AzkarElsabah', element: <ProtectRouter><AzkarElsabah/></ProtectRouter> },
       { path: 'AzkarElmasaa', element: <ProtectRouter><AzkarElmasaa/></ProtectRouter> },
+      { path: 'MultipledAzkar', element: <ProtectRouter><MultipledAzkar/></ProtectRouter> },
 
       { path: 'Ahadith', element: <ProtectRouter><Ahadith/></ProtectRouter> },
       { path: 'Roqya', element: <ProtectRouter><Roqya/></ProtectRouter> },
